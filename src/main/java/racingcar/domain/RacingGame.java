@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.strategy.MovingStrategy;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -13,9 +15,9 @@ public class RacingGame {
         this.movement = movement;
     }
 
-    public List<Car> game() {
+    public List<Car> game(MovingStrategy movingStrategy) {
         for (int i = 0; i < movement.getRound(); i++) {
-            cars.move();
+            cars.move(movingStrategy);
         }
         return Collections.unmodifiableList(cars.getCarList());
     }

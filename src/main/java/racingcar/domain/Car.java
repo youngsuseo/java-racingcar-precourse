@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.strategy.MovingStrategy;
+
 public class Car {
 
     private final Name name;
@@ -10,7 +12,7 @@ public class Car {
         this.position = new Position(position);
     }
 
-    public void move() {
-        this.position = position.move();
+    public void move(MovingStrategy movingStrategy) {
+        this.position = position.move(movingStrategy);
     }
 }

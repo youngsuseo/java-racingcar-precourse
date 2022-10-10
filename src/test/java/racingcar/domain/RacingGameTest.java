@@ -3,6 +3,7 @@ package racingcar.domain;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.strategy.RandomMovingStrategy;
 
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class RacingGameTest {
     @DisplayName("자동차 경주를 수행하고 결과값을 받는다.")
     @Test
     void game() {
-        List<Car> gameResult = racingGame.game();
+        List<Car> gameResult = racingGame.game(new RandomMovingStrategy());
         assertThat(gameResult).hasSize(3);
     }
 }

@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.strategy.MovingStrategy;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,9 +20,9 @@ public class Cars {
         }
     }
 
-    public void move() {
+    public void move(MovingStrategy movingStrategy) {
         for (Car car : carList) {
-            car.move();
+            car.move(movingStrategy);
         }
     }
 
