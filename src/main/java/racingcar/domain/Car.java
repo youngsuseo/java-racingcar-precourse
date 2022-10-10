@@ -3,10 +3,10 @@ package racingcar.domain;
 public class Car {
 
     private final Name name;
-    private final String position;
+    private final Position position;
 
-    public Car(String name, String postion) {
+    public Car(String name, int position) {
         this.name = new Name(name);
-        this.position = postion;
+        this.position = new Position(position);
     }
 }
