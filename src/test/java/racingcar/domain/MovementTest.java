@@ -6,6 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MovementTest {
 
@@ -28,5 +29,13 @@ public class MovementTest {
     void constructWithNotPositiveNumber(int round) {
         assertThatIllegalArgumentException().isThrownBy(() -> new Movement(round))
                 .withMessageContaining("자동차 경주를 진행할 횟수는 1 이상이어야 합니다.");
+    }
+
+    @DisplayName("레이싱 경주를 지속여부를 판단한다. (지속)")
+    @ParameterizedTest
+    @ValueSource(strings = {"1", "2"})
+    void continuable_true(int round) {
+        Movement movement = new Movement(round);
+        assertTrue(movement.continuable());
     }
 }

@@ -21,4 +21,8 @@ public class RacingGame {
         }
         return Collections.unmodifiableList(cars.getCarList());
     }
+
+    public boolean continuable() {
+        return movement.continuable();
+    }
 }
