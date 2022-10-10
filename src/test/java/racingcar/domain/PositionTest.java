@@ -23,4 +23,12 @@ public class PositionTest {
         assertThatIllegalArgumentException().isThrownBy(() -> new Position(-1))
                 .withMessageContaining("자동차의 위치는 음수가 될 수 없습니다.");
     }
+
+    @DisplayName("자동차가 정상적으로 이동하는지 확인한다.")
+    @Test
+    void move() {
+        Position position = new Position(0);
+        assertThat(position.move(3)).isEqualTo(new Position(0));
+        assertThat(position.move(4)).isEqualTo(new Position(1));
+    }
 }
