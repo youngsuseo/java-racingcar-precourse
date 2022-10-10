@@ -13,4 +13,11 @@ public class CarTest {
         Car car = new Car("car1", 1);
         assertThat(car).isNotNull();
     }
+
+    @DisplayName("Car 클래스의 equals 메소드의 정상동작을 확인한다.")
+    @Test
+    void equals() {
+        Car car = new Car("car1", 1);
+        assertThat(car).isEqualTo(new Car("car1", 1));
+    }
 }

@@ -31,9 +31,9 @@ public class RacingGameTest {
     void game() {
         List<Car> gameResult = racingGame.game(() -> true);
         assertAll(
-                () -> assertThat(gameResult.get(0)).isEqualTo(new Car("car1", 5)),
-                () -> assertThat(gameResult.get(1)).isEqualTo(new Car("car2", 5)),
-                () -> assertThat(gameResult.get(2)).isEqualTo(new Car("car3", 5))
+                () -> assertThat(gameResult.get(0)).isEqualTo(new Car("car1", 1)),
+                () -> assertThat(gameResult.get(1)).isEqualTo(new Car("car2", 1)),
+                () -> assertThat(gameResult.get(2)).isEqualTo(new Car("car3", 1))
         );
     }
 }
