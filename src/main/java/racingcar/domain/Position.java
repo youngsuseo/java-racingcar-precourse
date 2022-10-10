@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.strategy.MovingStrategy;
 
 import java.util.Objects;
 
@@ -30,6 +31,13 @@ public class Position {
             return this;
         }
         return new Position(position + 1);
+    }
+
+    public Position move(MovingStrategy movingStrategy) {
+        if (movingStrategy.movable()) {
+            return new Position(position + 1);
+        }
+        return this;
     }
 
     @Override

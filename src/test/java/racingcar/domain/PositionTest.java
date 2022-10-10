@@ -31,4 +31,11 @@ public class PositionTest {
         assertThat(position.move(3)).isEqualTo(new Position(0));
         assertThat(position.move(4)).isEqualTo(new Position(1));
     }
+
+    @DisplayName("FunctionalInterface를 통한 move() 테스트 수행 ")
+    @Test
+    void moveWithMovingStrategy() {
+        Position position = new Position(0);
+        assertThat(position.move(() -> true)).isEqualTo(new Position(1));
+    }
 }
