@@ -5,6 +5,7 @@ import org.junit.platform.commons.util.StringUtils;
 import java.util.Objects;
 
 public class Name {
+    private static final int MAX_NAME_LENGTH = 5;
 
     private final String name;
 
@@ -14,7 +15,7 @@ public class Name {
             throw new IllegalArgumentException("자동차 이름은 빈값이 될 수 없습니다.");
         }
 
-        if (refinedName.length() > 5) {
+        if (refinedName.length() > MAX_NAME_LENGTH) {
             throw new IllegalArgumentException("자동차 이름은 5글자 이하만 가능합니다.");
         }
 
