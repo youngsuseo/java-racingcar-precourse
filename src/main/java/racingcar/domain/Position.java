@@ -2,10 +2,20 @@ package racingcar.domain;
 
 import racingcar.strategy.MovingStrategy;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class Position {
     private static final int CRITERIA_NUMBER = 0;
+    private static final int INCREASE_NUMBER = 1;
+    private static final int INITIAL_CACHED_MIN_VALUE = 0;
+    private static final int INITIAL_CACHED_MAX_VALUE = 10;
+    private static final Map<Integer, Position> CACHED_POSITIONS = new LinkedHashMap<Integer, Position>() {{
+        for (int i = INITIAL_CACHED_MIN_VALUE; i < INITIAL_CACHED_MAX_VALUE; i++) {
+            put(i, new Position(i));
+        }
+    }};
 
     private final int position;
 
@@ -19,9 +29,16 @@ public class Position {
 
     public Position move(MovingStrategy movingStrategy) {
         if (movingStrategy.movable()) {
-            return new Position(position + 1);
+            return cachedPosition();
         }
         return this;
+    }
+
+    Position cachedPosition() {
+        if (CACHED_POSITIONS.containsKey(position + INCREASE_NUMBER)) {
+            return CACHED_POSITIONS.get(position + INCREASE_NUMBER);
+        }
+        return new Position(position + INCREASE_NUMBER);
     }
 
     @Override

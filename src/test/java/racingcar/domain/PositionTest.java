@@ -6,6 +6,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 public class PositionTest {
 
@@ -29,5 +31,15 @@ public class PositionTest {
     void moveWithMovingStrategy() {
         Position position = new Position(0);
         assertThat(position.move(() -> true)).isEqualTo(new Position(1));
+    }
+
+    @DisplayName("cache 된 값으로 응답받는지 확인한다.")
+    @Test
+    void cachedPosition() {
+        Position position1 = new Position(0);
+        Position position2 = new Position(0);
+
+        assertNotSame(position1, position2);
+        assertSame(position1.cachedPosition(), position2.cachedPosition());
     }
 }
