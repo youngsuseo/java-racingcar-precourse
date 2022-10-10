@@ -26,6 +26,10 @@ public class Car {
         return position.getPosition();
     }
 
+    public String name() {
+        return name.getName();
+    }
+
     public Name getName() {
         return name;
     }
