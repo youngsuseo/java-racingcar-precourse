@@ -41,6 +41,14 @@ public class Position {
         return new Position(position + INCREASE_NUMBER);
     }
 
+    public boolean isMaxPosition(int maxPosition) {
+        return position >= maxPosition;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

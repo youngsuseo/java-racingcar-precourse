@@ -18,6 +18,18 @@ public class Car {
         this.position = position.move(movingStrategy);
     }
 
+    public boolean isMaxPosition(int maxPosition) {
+        return position.isMaxPosition(maxPosition);
+    }
+
+    public int position() {
+        return position.getPosition();
+    }
+
+    public Name getName() {
+        return name;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

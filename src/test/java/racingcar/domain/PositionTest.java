@@ -6,8 +6,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertNotSame;
-import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class PositionTest {
 
@@ -41,5 +40,16 @@ public class PositionTest {
 
         assertNotSame(position1, position2);
         assertSame(position1.cachedPosition(), position2.cachedPosition());
+    }
+
+    @DisplayName("자동차가 가장 멀리 움직였는지 확인한다.")
+    @Test
+    void isMaxPosition() {
+        Position position = new Position(3);
+        assertAll(
+                () -> assertThat(position.isMaxPosition(2)).isTrue(),
+                () -> assertThat(position.isMaxPosition(3)).isTrue(),
+                () -> assertThat(position.isMaxPosition(4)).isFalse()
+        );
     }
 }
