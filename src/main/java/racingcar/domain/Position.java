@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Position {
     private static final int CRITERIA_NUMBER = 0;
 
@@ -11,5 +13,13 @@ public class Position {
         }
 
         this.position = position;
+    }
+
+    public Position move() {
+        int randomNumber = Randoms.pickNumberInRange(0, 9);
+        if (randomNumber < 4) {
+            return this;
+        }
+        return new Position(position + 1);
     }
 }

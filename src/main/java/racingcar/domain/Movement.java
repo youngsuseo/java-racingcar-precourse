@@ -15,4 +15,8 @@ public class Movement {
 
         this.round = round;
     }
+
+    public int getRound() {
+        return round;
+    }
 }

@@ -17,4 +17,14 @@ public class Cars {
             carList.add(new Car(name, INITIAL_POSITION));
         }
     }
+
+    public void move() {
+        for (Car car : carList) {
+            car.move();
+        }
+    }
+
+    public List<Car> getCarList() {
+        return carList;
+    }
 }
