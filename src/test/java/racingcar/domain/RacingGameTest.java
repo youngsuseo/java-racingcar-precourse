@@ -8,6 +8,7 @@ import racingcar.strategy.RandomMovingStrategy;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 public class RacingGameTest {
 
@@ -29,7 +30,11 @@ public class RacingGameTest {
     @DisplayName("자동차 경주를 수행하고 결과값을 받는다.")
     @Test
     void game() {
-        List<Car> gameResult = racingGame.game(new RandomMovingStrategy());
-        assertThat(gameResult).hasSize(3);
+        List<Car> gameResult = racingGame.game(() -> true);
+        assertAll(
+                () -> assertThat(gameResult.get(0)).isEqualTo(new Car("car1", 5)),
+                () -> assertThat(gameResult.get(1)).isEqualTo(new Car("car2", 5)),
+                () -> assertThat(gameResult.get(2)).isEqualTo(new Car("car3", 5))
+        );
     }
 }
